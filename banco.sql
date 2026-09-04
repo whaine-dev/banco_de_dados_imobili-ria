@@ -11,7 +11,7 @@ CREATE TABLE edificio(
     cidade VARCHAR(100) NOT NULL,
     data_de_construcao DATE NOT NULL,
 	PRIMARY KEY(id_edificio)
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO edificio VALUES
 (NULL, "Rua do Sol", "100", "50010470", "Santo Antônio", "Recife", "2010-05-15"),
@@ -24,7 +24,7 @@ CREATE TABLE cliente_cpf_cnpj (
 	id_cliente_cpf_cnpj INT AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_cliente_cpf_cnpj)
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_inicode_ci;
 
 CREATE TABLE cliente_cpf(
 	id_cliente_cpf_cnpj INT,
@@ -34,7 +34,7 @@ CREATE TABLE cliente_cpf(
 	telefone VARCHAR(11),
     PRIMARY KEY(id_cliente_cpf_cnpj),
     FOREIGN KEY(id_cliente_cpf_cnpj) REFERENCES cliente_cpf_cnpj(id_cliente_cpf_cnpj )
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE cliente_cnpj (
 	id_cliente_cpf_cnpj INT,
@@ -42,7 +42,7 @@ CREATE TABLE cliente_cnpj (
     data_de_criacao DATE NOT NULL,
 	PRIMARY KEY(id_cliente_cpf_cnpj),
     FOREIGN KEY(id_cliente_cpf_cnpj) REFERENCES cliente_cpf_cnpj(id_cliente_cpf_cnpj)
-)CHARSET= utf8mb4;
+)CHARSET= utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO cliente_cpf_cnpj VALUES
 (NULL, "Luciana Sabrina Lopes"),
@@ -91,7 +91,7 @@ CREATE TABLE compra (
     id_cliente_cpf_cnpj INT NOT NULL,
     PRIMARY KEY(id_compra),
     FOREIGN KEY(id_cliente_cpf_cnpj) REFERENCES cliente_cpf_cnpj(id_cliente_cpf_cnpj)
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO compra VALUES
 (NULL, "2018-06-12", "480000.00", "1"),
@@ -110,7 +110,7 @@ CREATE TABLE apartamento (
 	id_compra INT NOT NULL,
 	PRIMARY KEY(id_apartamento),
     FOREIGN KEY(id_compra) REFERENCES compra(id_compra)
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO apartamento VALUES
 (NULL, "1"),
 (NULL, "2"),
@@ -130,7 +130,7 @@ CREATE TABLE edificio_apartamento (
 	PRIMARY KEY(id_edificio_apartamento),
     FOREIGN KEY(id_edificio) REFERENCES edificio(id_edificio),
     FOREIGN KEY(id_apartamento) REFERENCES apartamento(id_apartamento)
-)CHARSET=utf8mb4;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO edificio_apartamento (id_edificio, id_apartamento) 
 VALUES
