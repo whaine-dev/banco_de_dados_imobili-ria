@@ -24,7 +24,7 @@ CREATE TABLE cliente_cpf_cnpj (
 	id_cliente_cpf_cnpj INT AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_cliente_cpf_cnpj)
-)CHARSET=utf8mb4 COLLATE=utf8mb4_inicode_ci;
+)CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE cliente_cpf(
 	id_cliente_cpf_cnpj INT,
