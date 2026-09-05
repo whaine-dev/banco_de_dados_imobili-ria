@@ -17,8 +17,8 @@ INSERT INTO edificio VALUES
 (NULL, "Rua do Sol", "100", "50010470", "Santo Antônio", "Recife", "2010-05-15"),
 (NULL, "Avenida Boa Viagem", "850", "51020000", "Boa Viagem", "Recife", "2015-08-20"),
 (NULL, "Rua do Apolo", "150", "50030220", "Recife", "Recife", "2005-03-10"),
-(NULL, "Rua do Amparo", "100", "53025080", "Olinda", "Amparo", "2018-11-25"),
-(NULL, "Rua Treze de Maio", "75", "53020170", "Olinda", "Carmo", "2020-07-30");
+(NULL, "Rua do Amparo", "100", "53025080", "Amparo", "Olinda", "2018-11-25"),
+(NULL, "Rua Treze de Maio", "75", "53020170", "Carmo", "Olinda", "2020-07-30");
 
 CREATE TABLE cliente_cpf_cnpj (
 	id_cliente_cpf_cnpj INT AUTO_INCREMENT,
