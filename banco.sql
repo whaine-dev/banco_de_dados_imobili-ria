@@ -145,14 +145,17 @@ VALUES
 ("5","9"),
 ("5","10");
 
-SELECT * FROM cliente_cpf_cnpj
+SELECT * FROM 
+cliente_cpf_cnpj
 LEFT JOIN cliente_cpf
-	ON cliente_cpf.id_cliente_cpf_cnpj = cliente_cpf_cnpj.id_cliente_cpf_cnpj
+	ON cliente_cpf_cnpj.id_cliente_cpf_cnpj = cliente_cpf.id_cliente_cpf_cnpj
 LEFT JOIN cliente_cnpj
-	ON cliente_cnpj.id_cliente_cpf_cnpj = cliente_cpf_cnpj.id_cliente_cpf_cnpj
+	ON cliente_cpf_cnpj.id_cliente_cpf_cnpj = cliente_cnpj.id_cliente_cpf_cnpj
 INNER JOIN compra
-	ON compra.id_cliente_cpf_cnpj = cliente_cpf_cnpj.id_cliente_cpf_cnpj
+	ON cliente_cpf_cnpj.id_cliente_cpf_cnpj = compra.id_cliente_cpf_cnpj
 INNER JOIN apartamento
-	ON apartamento.id_compra = compra.id_compra
+	ON compra.id_compra = apartamento.id_compra
 INNER JOIN edificio_apartamento
-	ON edificio_apartamento.id_apartamento = apartamento.id_apartamento;
+	ON apartamento.id_apartamento = edificio_apartamento.id_apartamento
+INNER JOIN edificio
+	ON edificio.id_edificio = edificio_apartamento.id_edificio;
